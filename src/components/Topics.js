@@ -1,8 +1,10 @@
 import styles from "./Topics.module.css";
 import SideNav from "./SideNav";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { useContext } from "react";
 import { titlesContext } from "../Contexts/TitlesContext";
+import { Link } from "react-router-dom";
+
 export default function Topics() {
   const titles = useContext(titlesContext);
   return (
@@ -14,18 +16,19 @@ export default function Topics() {
             {titles.map((item, idx) => (
               <Col key={item.id}>
                 <Card>
-                  <Card.Img
-                    variant="top"
-                    src={`/${item.id}.png`}
-                    className="cardImg"
-                  />
+                  <Link to={`/post/${item.id}`}>
+                    <Card.Img
+                      variant="top"
+                      src={`/${item.id}.png`}
+                      className="cardImg"
+                    />
+                  </Link>
                   <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
-                    <Card.Text>
-                      This is a longer card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </Card.Text>
+                    <Card.Text>{item.brief}</Card.Text>
+                    <Button as={Link} to={`/post/${item.id}`}>
+                      Read
+                    </Button>
                   </Card.Body>
                 </Card>
               </Col>
