@@ -52,6 +52,7 @@ export default function Login() {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
+          {error ? <p style={{ color: "red" }}>"Wrong email/password"</p> : ""}
         </Form.Group>
         <Button variant="primary" type="submit">
           Submit

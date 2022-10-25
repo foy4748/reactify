@@ -1,8 +1,9 @@
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useContext, useState } from "react";
 import { userContext } from "../Contexts/AuthContext";
 import { Form, Button } from "react-bootstrap";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle, faGithub } from "@fortawesome/free-brands-svg-icons";
 import styles from "./Register.module.css";
 
 export default function Register() {
@@ -72,6 +73,11 @@ export default function Register() {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
+          {error ? (
+            <p style={{ color: "red" }}>"Something Went Wrong. Try again"</p>
+          ) : (
+            ""
+          )}
         </Form.Group>
         <Button variant="primary" type="submit">
           Submit
@@ -80,8 +86,14 @@ export default function Register() {
       <hr />
       <h1 className="text-center">Continue using</h1>
       <div className="d-flex justify-content-center">
-        <Button onClick={handlerGoogleLogin}>Google</Button>
-        <Button onClick={handlerGithubLogin}>Github</Button>
+        <Button onClick={handlerGoogleLogin}>
+          {" "}
+          <FontAwesomeIcon icon={faGoogle} /> Google{" "}
+        </Button>
+        <Button onClick={handlerGithubLogin}>
+          {" "}
+          <FontAwesomeIcon icon={faGithub} /> Github{" "}
+        </Button>
       </div>
     </div>
   );

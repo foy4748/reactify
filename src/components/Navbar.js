@@ -98,10 +98,13 @@ export default function NavBar() {
               </NavDropdown>
             </Nav>
             <Nav>
-              {activeUser && activeUser.uid ? (
+              {activeUser && activeUser?.uid ? (
                 logoutNavItem()
               ) : authLoading ? (
-                <Nav.Link> Loading.. </Nav.Link>
+                <Nav.Link as={NavLink} to="/login">
+                  {" "}
+                  Loading..{" "}
+                </Nav.Link>
               ) : (
                 loginRegisterNavItem()
               )}

@@ -1,7 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import PrivateRoute from "./PrivateRoute";
-
 import MainLayout from "../components/MainLayout";
 import Login from "../components/Login";
 import Register from "../components/Register";
