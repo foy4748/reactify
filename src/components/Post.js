@@ -9,6 +9,11 @@ const SERVER = process.env.REACT_APP_SERVER_ADDRESS;
 export default function Post() {
   const [post, setPost] = useState("");
   const { id } = useParams();
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   useEffect(() => {
     fetch(`${SERVER ? SERVER : "http://localhost:3001"}/${id}`)
       .then((res) => res.json())
@@ -20,6 +25,9 @@ export default function Post() {
   return (
     <div className={styles.postPageContainer}>
       <div className={styles.postContainer}>
+        <div className={styles.imgContainer}>
+          <img src={`/${id}.png`} className="imgFluid" alt="" />
+        </div>
         <Markdown children={post} />
       </div>
       <div>
