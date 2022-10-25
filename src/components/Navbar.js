@@ -1,6 +1,6 @@
 //import styles from "./Navbar.module.css";
 import { NavLink, Link } from "react-router-dom";
-import { useRef, useContext, useState } from "react";
+import { useRef, useContext } from "react";
 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -18,9 +18,8 @@ import firebaseApp from "../firebase.config.js";
 
 const auth = getAuth(firebaseApp);
 
-export default function NavBar() {
+export default function NavBar({ darkActive, setDarkActive }) {
   const { setActiveUser, logOutHandler, authLoading } = useContext(userContext);
-  const [darkActive, setDarkActive] = useState(false);
   const activeUser = auth.currentUser;
 
   const toggleButton = useRef();
