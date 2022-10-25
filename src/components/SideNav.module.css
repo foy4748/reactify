@@ -1,0 +1,13 @@
+.sideNavContainer {
+  margin-top: 7rem;
+  position: sticky;
+  top: 8rem;
+}
+
+@media screen and (max-width: 700px) {
+  .sideNavContainer {
+    margin-top: 0;
+    position: static;
+    padding: 3rem;
+  }
+}

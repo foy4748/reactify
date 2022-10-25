@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+import styles from "./SideNav.module.css";
+
 const SERVER = process.env.REACT_APP_SERVER_ADDRESS;
+
 export default function SideNav() {
   const [titles, setTitles] = useState([]);
   useEffect(() => {
@@ -10,13 +14,16 @@ export default function SideNav() {
       .catch((error) => console.error(error));
   }, []);
   return (
-    <ol style={{ marginTop: "7rem", position: "sticky", top: "7rem" }}>
-      {titles.map((item) => (
-        <li>
-          {" "}
-          <Link to={`/post/${item.id}`}>{item.title}</Link>
-        </li>
-      ))}
-    </ol>
+    <div className={styles.sideNavContainer}>
+      <h1>Topics</h1>
+      <ol>
+        {titles.map((item) => (
+          <li>
+            {" "}
+            <NavLink to={`/post/${item.id}`}>{item.title}</NavLink>
+          </li>
+        ))}
+      </ol>
+    </div>
   );
 }
