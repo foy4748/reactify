@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { userContext } from "../Contexts/AuthContext";
 import { Form, Button } from "react-bootstrap";
@@ -82,7 +82,9 @@ export default function Login() {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
+          <p>
+            Don't have an account? Please, <Link to="/register">Register</Link>
+          </p>
           {error ? <p style={{ color: "red" }}>"Wrong email/password"</p> : ""}
         </Form.Group>
         <Button variant="primary" type="submit">

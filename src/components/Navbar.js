@@ -75,8 +75,8 @@ export default function NavBar() {
           />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={NavLink} onClick={closeMenu} to="/orders">
-                Orders
+              <Nav.Link as={NavLink} onClick={closeMenu} to="/topics">
+                Topics
               </Nav.Link>
               <Nav.Link as={NavLink} onClick={closeMenu} to="/booking">
                 Booking

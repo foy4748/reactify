@@ -4,6 +4,7 @@ import MainLayout from "../components/MainLayout";
 import Post from "../components/Post";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import Topics from "../components/Topics";
 import ErrorPage from "../components/ErrorPage";
 
 //Loaders
@@ -16,6 +17,10 @@ const routerObj = [
     path: "/",
     element: <MainLayout />,
     children: [
+      {
+        path: "/topics",
+        element: <Topics />,
+      },
       {
         path: "/post/:id",
         element: <Post />,
