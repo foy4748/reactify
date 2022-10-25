@@ -1,10 +1,15 @@
 //import styles from "./Navbar.module.css";
 import { NavLink, Link } from "react-router-dom";
-import { useRef, useContext } from "react";
+import { useRef, useContext, useState } from "react";
 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun, faMoon } from "@fortawesome/free-regular-svg-icons";
 
 import { userContext } from "../Contexts/AuthContext";
 
@@ -15,6 +20,7 @@ const auth = getAuth(firebaseApp);
 
 export default function NavBar() {
   const { setActiveUser, logOutHandler, authLoading } = useContext(userContext);
+  const [darkActive, setDarkActive] = useState(false);
   const activeUser = auth.currentUser;
 
   const toggleButton = useRef();
@@ -46,6 +52,35 @@ export default function NavBar() {
     );
   };
 
+  const light = (
+    <OverlayTrigger
+      placement={"bottom"}
+      overlay={<Tooltip>Light Theme</Tooltip>}
+    >
+      <Nav.Item onClick={() => setDarkActive((curr) => !curr)}>
+        {" "}
+        <Nav.Link>
+          {" "}
+          <FontAwesomeIcon icon={faSun} />{" "}
+        </Nav.Link>{" "}
+      </Nav.Item>
+    </OverlayTrigger>
+  );
+  const dark = (
+    <OverlayTrigger
+      placement={"bottom"}
+      overlay={<Tooltip>Dark Theme</Tooltip>}
+    >
+      <Nav.Item onClick={() => setDarkActive((curr) => !curr)}>
+        {" "}
+        <Nav.Link>
+          {" "}
+          <FontAwesomeIcon icon={faMoon} />{" "}
+        </Nav.Link>{" "}
+      </Nav.Item>
+    </OverlayTrigger>
+  );
+
   return (
     <>
       <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -71,6 +106,7 @@ export default function NavBar() {
               </Nav.Link>
             </Nav>
             <Nav>
+              {darkActive ? dark : light}
               {activeUser && activeUser?.uid ? (
                 logoutNavItem()
               ) : authLoading ? (
