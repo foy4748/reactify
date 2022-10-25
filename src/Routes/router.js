@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import MainLayout from "../components/MainLayout";
+import Post from "../components/Post";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import ErrorPage from "../components/ErrorPage";
@@ -15,6 +16,10 @@ const routerObj = [
     path: "/",
     element: <MainLayout />,
     children: [
+      {
+        path: "/",
+        element: <Post />,
+      },
       {
         path: "/login",
         element: <Login />,
