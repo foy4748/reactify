@@ -1,0 +1,22 @@
+.topicPageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.topicContainer {
+  max-width: 1000px;
+  padding: 0 2rem;
+  margin-top: 4rem;
+  margin-left: 3rem;
+}
+@media screen and (max-width: 700px) {
+  .topicPageContainer {
+    flex-flow: column;
+  }
+  .topicContainer {
+    padding: 0 2rem;
+    margin-left: 0;
+    margin: 3rem 1rem;
+    margin-bottom: 1rem;
+  }
+}

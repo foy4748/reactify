@@ -1,11 +1,10 @@
 //import styles from "./Navbar.module.css";
 import { NavLink, Link } from "react-router-dom";
-import { useEffect, useState, useRef, useContext } from "react";
+import { useRef, useContext } from "react";
 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 
 import { userContext } from "../Contexts/AuthContext";
 
@@ -15,7 +14,6 @@ import firebaseApp from "../firebase.config.js";
 const auth = getAuth(firebaseApp);
 
 export default function NavBar() {
-  const [availableCategories, setAvailableCategories] = useState([]);
   const { setActiveUser, logOutHandler, authLoading } = useContext(userContext);
   const activeUser = auth.currentUser;
 
@@ -38,23 +36,16 @@ export default function NavBar() {
   const loginRegisterNavItem = () => {
     return (
       <>
-        <Nav.Link as={NavLink} to="/register">
+        <Nav.Link as={NavLink} onClick={closeMenu} to="/register">
           Register
         </Nav.Link>
-        <Nav.Link as={NavLink} to="/login">
+        <Nav.Link as={NavLink} onClick={closeMenu} to="/login">
           Login
         </Nav.Link>
       </>
     );
   };
 
-  useEffect(() => {
-    fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
-      .then((res) => res.json())
-      .then(({ categories }) => {
-        setAvailableCategories(categories);
-      });
-  }, []);
   return (
     <>
       <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -78,24 +69,6 @@ export default function NavBar() {
               <Nav.Link as={NavLink} onClick={closeMenu} to="/topics">
                 Topics
               </Nav.Link>
-              <Nav.Link as={NavLink} onClick={closeMenu} to="/booking">
-                Booking
-              </Nav.Link>
-              <Nav.Link as={Link}>Payment</Nav.Link>
-              <NavDropdown title="Categories" id="collasible-nav-dropdown">
-                {availableCategories.map((cat) => {
-                  return (
-                    <NavDropdown.Item
-                      as={NavLink}
-                      to={`/categories/${cat.strCategory}`}
-                      onClick={closeMenu}
-                      key={cat.idCategory}
-                    >
-                      {cat.strCategory}
-                    </NavDropdown.Item>
-                  );
-                })}
-              </NavDropdown>
             </Nav>
             <Nav>
               {activeUser && activeUser?.uid ? (
