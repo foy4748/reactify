@@ -10,6 +10,7 @@ export default function Register() {
   //Executing Hooks
   const {
     setActiveUser,
+    setAuthLoading,
     registerHandler,
     googleLoginHandler,
     githubLoginHandler,
@@ -31,6 +32,7 @@ export default function Register() {
         navigate(location?.state?.from || "/", { replace: true });
       })
       .catch((error) => setError(error));
+    setAuthLoading(false);
   };
 
   const handlerGoogleLogin = () => {
@@ -40,6 +42,7 @@ export default function Register() {
         navigate(location?.state?.from || "/", { replace: true });
       })
       .catch((error) => setError(error));
+    setAuthLoading(false);
   };
 
   const handlerGithubLogin = () => {
@@ -49,6 +52,7 @@ export default function Register() {
         navigate(location?.state?.from || "/", { replace: true });
       })
       .catch((error) => setError(error));
+    setAuthLoading(false);
   };
 
   return (

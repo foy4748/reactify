@@ -3,11 +3,20 @@ import { useContext, useState } from "react";
 import { userContext } from "../Contexts/AuthContext";
 import { Form, Button } from "react-bootstrap";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle, faGithub } from "@fortawesome/free-brands-svg-icons";
+
 import styles from "./Register.module.css";
 
 export default function Login() {
   //Executing Hooks
-  const { setActiveUser, loginHandler } = useContext(userContext);
+  const {
+    setActiveUser,
+    setAuthLoading,
+    loginHandler,
+    googleLoginHandler,
+    githubLoginHandler,
+  } = useContext(userContext);
   const [error, setError] = useState();
   const location = useLocation();
   const navigate = useNavigate();
@@ -28,7 +37,29 @@ export default function Login() {
       .catch((error) => {
         console.error(error);
         setError(error.message);
+        setAuthLoading(false);
       });
+    setAuthLoading(false);
+  };
+
+  const handlerGoogleLogin = () => {
+    googleLoginHandler()
+      .then((result) => {
+        setActiveUser(result);
+        navigate(location?.state?.from || "/", { replace: true });
+      })
+      .catch((error) => setError(error));
+    setAuthLoading(false);
+  };
+
+  const handlerGithubLogin = () => {
+    githubLoginHandler()
+      .then((result) => {
+        setActiveUser(result);
+        navigate(location?.state?.from || "/", { replace: true });
+      })
+      .catch((error) => setError(error));
+    setAuthLoading(false);
   };
   return (
     <div className={styles.formContainer}>
@@ -58,6 +89,18 @@ export default function Login() {
           Submit
         </Button>
       </Form>
+      <hr />
+      <h1 className="text-center">Continue using</h1>
+      <div className="d-flex justify-content-center">
+        <Button onClick={handlerGoogleLogin}>
+          {" "}
+          <FontAwesomeIcon icon={faGoogle} /> Google{" "}
+        </Button>
+        <Button onClick={handlerGithubLogin}>
+          {" "}
+          <FontAwesomeIcon icon={faGithub} /> Github{" "}
+        </Button>
+      </div>
     </div>
   );
 }

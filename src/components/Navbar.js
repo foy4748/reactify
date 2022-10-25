@@ -101,10 +101,13 @@ export default function NavBar() {
               {activeUser && activeUser?.uid ? (
                 logoutNavItem()
               ) : authLoading ? (
-                <Nav.Link as={NavLink} to="/login">
-                  {" "}
-                  Loading..{" "}
-                </Nav.Link>
+                <>
+                  {loginRegisterNavItem()}
+                  <Nav.Link as={NavLink} to="/login">
+                    {" "}
+                    Loading..{" "}
+                  </Nav.Link>
+                </>
               ) : (
                 loginRegisterNavItem()
               )}
