@@ -1,5 +1,22 @@
+.postPageContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .postContainer {
-  max-width: 600px;
-  margin: 7rem auto;
+  max-width: 1000px;
   padding: 0 2rem;
+  margin-top: 7rem;
+  margin-left: 3rem;
+}
+
+@media screen and (max-width: 700px) {
+  .postPageContainer {
+    flex-flow: column;
+  }
+  .postContainer {
+    padding: 0 2rem;
+    margin-left: 0;
+    margin: 7rem 1rem;
+  }
 }

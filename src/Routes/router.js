@@ -17,7 +17,7 @@ const routerObj = [
     element: <MainLayout />,
     children: [
       {
-        path: "/",
+        path: "/post/:id",
         element: <Post />,
       },
       {
