@@ -7,7 +7,12 @@ import styles from "./Register.module.css";
 
 export default function Register() {
   //Executing Hooks
-  const { setActiveUser, registerHandler } = useContext(userContext);
+  const {
+    setActiveUser,
+    registerHandler,
+    googleLoginHandler,
+    githubLoginHandler,
+  } = useContext(userContext);
   const [error, setError] = useState();
   const location = useLocation();
   const navigate = useNavigate();
@@ -26,6 +31,25 @@ export default function Register() {
       })
       .catch((error) => setError(error));
   };
+
+  const handlerGoogleLogin = () => {
+    googleLoginHandler()
+      .then((result) => {
+        setActiveUser(result);
+        navigate(location?.state?.from || "/", { replace: true });
+      })
+      .catch((error) => setError(error));
+  };
+
+  const handlerGithubLogin = () => {
+    githubLoginHandler()
+      .then((result) => {
+        setActiveUser(result);
+        navigate(location?.state?.from || "/", { replace: true });
+      })
+      .catch((error) => setError(error));
+  };
+
   return (
     <div className={styles.formContainer}>
       <Form onSubmit={(e) => handleSubmit(e)} className="border rounded p-5">
@@ -53,6 +77,12 @@ export default function Register() {
           Submit
         </Button>
       </Form>
+      <hr />
+      <h1 className="text-center">Continue using</h1>
+      <div className="d-flex justify-content-center">
+        <Button onClick={handlerGoogleLogin}>Google</Button>
+        <Button onClick={handlerGithubLogin}>Github</Button>
+      </div>
     </div>
   );
 }

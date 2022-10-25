@@ -9,9 +9,15 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 import { userContext } from "../Contexts/AuthContext";
 
+import { getAuth } from "firebase/auth";
+import firebaseApp from "../firebase.config.js";
+
+const auth = getAuth(firebaseApp);
+
 export default function NavBar() {
   const [availableCategories, setAvailableCategories] = useState([]);
-  const { activeUser, setActiveUser, logOutHandler } = useContext(userContext);
+  const { setActiveUser, logOutHandler, authLoading } = useContext(userContext);
+  const activeUser = auth.currentUser;
 
   const toggleButton = useRef();
   const closeMenu = () => {
@@ -92,9 +98,13 @@ export default function NavBar() {
               </NavDropdown>
             </Nav>
             <Nav>
-              {activeUser && activeUser.uid
-                ? logoutNavItem()
-                : loginRegisterNavItem()}
+              {activeUser && activeUser.uid ? (
+                logoutNavItem()
+              ) : authLoading ? (
+                <Nav.Link> Loading.. </Nav.Link>
+              ) : (
+                loginRegisterNavItem()
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

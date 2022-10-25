@@ -1,11 +1,11 @@
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import firebaseApp from "../firebase.config.js";
 import Loader from "../components/Loader";
 
 import { useLocation, Navigate } from "react-router-dom";
 
 import { userContext } from "../Contexts/AuthContext";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 const auth = getAuth(firebaseApp);
 
 export default function PrivateRoute({ children }) {

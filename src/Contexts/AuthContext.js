@@ -3,12 +3,18 @@ import firebaseApp from "../firebase.config";
 import {
   getAuth,
   signInWithEmailAndPassword,
+  signInWithPopup,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
 
+import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
+
 const auth = getAuth(firebaseApp);
+const googleAuthProvider = new GoogleAuthProvider(auth);
+const githubAuthProvider = new GithubAuthProvider(auth);
+
 const userContext = createContext(null);
 export { userContext };
 
@@ -27,10 +33,21 @@ export default function AuthContext({ children }) {
 
   // Auth Handling functions
   const loginHandler = (email, password) => {
+    setAuthLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  const googleLoginHandler = () => {
+    setAuthLoading(true);
+    return signInWithPopup(auth, googleAuthProvider);
+  };
+
+  const githubLoginHandler = () => {
+    setAuthLoading(true);
+    return signInWithPopup(auth, githubAuthProvider);
+  };
   const registerHandler = (email, password) => {
+    setAuthLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
@@ -42,6 +59,8 @@ export default function AuthContext({ children }) {
   // PayLoad
   const contextPayLoad = {
     loginHandler,
+    googleLoginHandler,
+    githubLoginHandler,
     registerHandler,
     authLoading,
     activeUser,
