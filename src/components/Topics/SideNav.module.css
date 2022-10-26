@@ -4,7 +4,7 @@
   top: 8rem;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1200px) {
   .sideNavContainer {
     margin-top: 0;
     position: static;

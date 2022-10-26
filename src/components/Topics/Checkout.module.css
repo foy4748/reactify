@@ -1,5 +1,6 @@
 .checkoutContainer {
   padding-top: 13rem;
+  padding-bottom: 13rem;
   display: flex;
   justify-content: center;
 }

@@ -31,10 +31,6 @@ export default function Post() {
   };
 
   useEffect(() => {
-    window.scroll(0, 0);
-  }, []);
-
-  useEffect(() => {
     fetch(`${SERVER ? SERVER : "http://localhost:3001"}/${id}`)
       .then((res) => res.json())
       .then(({ title, post }) => {
