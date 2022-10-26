@@ -14,6 +14,7 @@ export default function Register() {
     registerHandler,
     googleLoginHandler,
     githubLoginHandler,
+    updateUserProfile,
   } = useContext(userContext);
   const [error, setError] = useState();
   const location = useLocation();
@@ -22,17 +23,32 @@ export default function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
+    //Required Fields
     const email = form.email.value;
     const password = form.password.value;
+
+    //Optional Fields
+    const displayName = form.displayName.value;
+    const photoURL = form.photoURL.value;
+    const profileObj = { displayName, photoURL };
 
     registerHandler(email, password)
       .then((result) => {
         setActiveUser(result);
         form.reset();
+        if (displayName && photoURL) {
+          handleUpdate(profileObj);
+        }
         navigate(location?.state?.from || "/", { replace: true });
       })
       .catch((error) => setError(error));
     setAuthLoading(false);
+  };
+
+  const handleUpdate = (profileObj) => {
+    updateUserProfile(profileObj)
+      .then(() => {})
+      .catch((error) => console.error(error));
   };
 
   const handlerGoogleLogin = () => {
@@ -61,7 +77,12 @@ export default function Register() {
         <h1 className="text-center">Register</h1>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" name="email" />
+          <Form.Control
+            type="email"
+            placeholder="Enter email"
+            name="email"
+            required
+          />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
@@ -73,7 +94,20 @@ export default function Register() {
             type="password"
             name="password"
             placeholder="Password"
+            required
           />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicFullName">
+          <Form.Label>Full Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Full Name"
+            name="displayName"
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPhotoURL">
+          <Form.Label>Photo URL</Form.Label>
+          <Form.Control type="text" placeholder="Photo URL" name="photoURL" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <p>

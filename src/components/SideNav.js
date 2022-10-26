@@ -9,7 +9,6 @@ import Pdf from "react-to-pdf";
 import styles from "./SideNav.module.css";
 
 export default function SideNav({ sendRef, id }) {
-  console.log(id);
   const pdfButton = () => {
     if (id)
       return (

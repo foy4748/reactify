@@ -4,6 +4,7 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   signInWithPopup,
+  updateProfile,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
@@ -51,6 +52,10 @@ export default function AuthContext({ children }) {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  const updateUserProfile = (profileObj) => {
+    return updateProfile(auth.currentUser, profileObj);
+  };
+
   const logOutHandler = () => {
     return signOut(auth);
   };
@@ -62,6 +67,7 @@ export default function AuthContext({ children }) {
     googleLoginHandler,
     githubLoginHandler,
     registerHandler,
+    updateUserProfile,
     authLoading,
     activeUser,
     setActiveUser,

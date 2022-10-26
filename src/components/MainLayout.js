@@ -9,6 +9,7 @@ import TitlesContext from "../Contexts/TitlesContext";
 
 export default function MainLayout() {
   const [darkActive, setDarkActive] = useState(false);
+
   return (
     <>
       <AuthContext>
