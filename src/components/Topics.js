@@ -15,7 +15,7 @@ export default function Topics() {
           <Row xs={1} md={2} className="g-4">
             {titles.map((item, idx) => (
               <Col key={item.id}>
-                <Card>
+                <Card className="test">
                   <Link to={`/post/${item.id}`}>
                     <Card.Img
                       variant="top"
@@ -26,7 +26,12 @@ export default function Topics() {
                   <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
                     <Card.Text>{item.brief}</Card.Text>
-                    <Button as={Link} to={`/post/${item.id}`}>
+                    <Button
+                      as={Link}
+                      to={`/post/${item.id}`}
+                      variant="outline-info"
+                      className="border readBtn"
+                    >
                       Read
                     </Button>
                   </Card.Body>

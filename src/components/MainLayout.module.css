@@ -2,8 +2,29 @@
   margin-top: 3.5rem;
 }
 
+.mainContainer a {
+  color: #00b8cb;
+  text-decoration: none;
+}
+
+.mainContainer a::marker {
+  color: #00b8cb;
+}
+
+.mainContainer ol {
+  counter-reset: item;
+  padding: 0;
+}
+.mainContainer li {
+  list-style: none;
+}
+.mainContainer ol li:before {
+  content: counter(item) ". ";
+  counter-increment: item;
+  color: #00b8cb;
+}
+
 .darkTheme {
-  background-color: darkblue !important;
+  background-color: #272935 !important;
   color: lightgray !important;
-  border: 1px solid red;
 }
