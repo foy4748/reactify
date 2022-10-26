@@ -9,6 +9,7 @@
 
 .carauselImg {
   object-fit: cover;
+  min-height: 40vh;
   max-height: 80vh;
   filter: contrast(90%) brightness(50%);
 }

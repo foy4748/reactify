@@ -8,7 +8,7 @@ import { titlesContext } from "../../Contexts/TitlesContext";
 
 export default function Checkout() {
   const { id } = useParams();
-  const titles = useContext(titlesContext);
+  const { titles } = useContext(titlesContext);
   console.log(titles);
   const title = titles.find((item) => item.id === id);
   return (
@@ -16,7 +16,7 @@ export default function Checkout() {
       <div className="text-center">
         <h1>{`#${id}. `}</h1>
         <h1>{title?.title}</h1>
-        <p>Take consultation about this topic</p>
+        <p>Take consultations about this topic</p>
         <p>Meet our professionals to guide you in this topic</p>
         <div className="d-flex justify-content-around">
           <Button className="border readBtn" variant="outline-dark">

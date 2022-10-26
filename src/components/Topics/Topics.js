@@ -4,9 +4,14 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { useContext } from "react";
 import { titlesContext } from "../../Contexts/TitlesContext";
 import { Link } from "react-router-dom";
+import Loader from "../Shared/Loader";
 
 export default function Topics() {
-  const { titles } = useContext(titlesContext);
+  const { titles, titlesLoading } = useContext(titlesContext);
+  if (titlesLoading) {
+    return <Loader />;
+  }
+
   return (
     <div className={styles.topicPageContainer}>
       <div className={styles.topicContainer}>

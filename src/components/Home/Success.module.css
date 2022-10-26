@@ -1,0 +1,12 @@
+.successContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 50rem;
+  margin: 3rem auto;
+
+  border: 1px solid #00b8cb52;
+  border-radius: 3rem;
+  padding: 1rem 3rem;
+}

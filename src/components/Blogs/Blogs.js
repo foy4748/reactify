@@ -6,7 +6,7 @@ export default function Blogs() {
       <div className={styles.blogContainer}>
         <div className={styles.singleBlog}>
           <h1>1. What is "CORS"?</h1>
-          <p>
+          <p className={styles.answer}>
             CORS stands from <strong>CROSS ORIGIN RESOURCE SHARING</strong>. It
             allows communication between two machines (say computers). When a
             Client end computer sends a request to a Server-end computer, the
@@ -22,7 +22,7 @@ export default function Blogs() {
             2. Why are you using "Firebase" ? What other options do you have to
             implement authentication?
           </h1>
-          <p>
+          <p className={styles.answer}>
             Firebase is a PaaS, Platform-as-a-Service cloud computer based
             solution for various services such as Authentication, Hosting,
             Database, File Storage and more. It’s very reliable and trusted by
@@ -32,7 +32,7 @@ export default function Blogs() {
             authentication, for now.e
           </p>
           <br />
-          <p>
+          <p className={styles.answer}>
             There are other options to implement authentications as well, such
             as Auth0, OneLogin, Okta, Microsoft Azure Active Directory and so
             on. Authentication can also be implemented manually by creating a
@@ -43,7 +43,7 @@ export default function Blogs() {
 
         <div className={styles.singleBlog}>
           <h1>3. How does Private Route Works?</h1>
-          <p>
+          <p className={styles.answer}>
             Using React-Router, It is pretty straightforward to implement
             Private Route. A Private Route can be implemented by defining a
             component, that checks the authentication status. If user is logged
@@ -53,7 +53,7 @@ export default function Blogs() {
             router object for the RouterProvider.
           </p>
           <br />
-          <p>
+          <p className={styles.answer}>
             A clear example is given in{" "}
             <a href="https://github.com/foy4748/my-restaurant-app/blob/main/src/Routes/PrivateRoute.js">
               {" "}
@@ -63,7 +63,7 @@ export default function Blogs() {
         </div>
         <div className={styles.singleBlog}>
           <h1>4. What is NodeJS?</h1>
-          <p>
+          <p className={styles.answer}>
             NodeJS is JavaScript Runtime, which allows to execute JavaScript in
             a operating system. Previously, only the browsers could execute
             JavaScript. NodeJS is a revolutionary invention, which has broadened
@@ -72,7 +72,7 @@ export default function Blogs() {
             an operating system.
           </p>
           <br />
-          <p>
+          <p className={styles.answer}>
             The way NodeJS works is very similar it works inside a browser. But
             NodeJS runs in the context of the computer instead of browser.
           </p>
