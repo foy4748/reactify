@@ -4,6 +4,9 @@ export default function Blogs() {
   return (
     <Container>
       <div className={styles.blogContainer}>
+        <div className="mb-5">
+          <h1>Blogs</h1>
+        </div>
         <div className={styles.singleBlog}>
           <h1>1. What is "CORS"?</h1>
           <p className={styles.answer}>

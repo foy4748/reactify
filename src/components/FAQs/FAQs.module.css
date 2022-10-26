@@ -1,4 +1,15 @@
 .faqContainer {
-  margin-top: 6rem;
-  margin-bottom: 6rem;
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+  max-width: 800px;
+  margin: 3.5rem auto;
+}
+
+.singleFaq {
+  margin-bottom: 5rem;
+}
+
+.answer {
+  margin-top: 1.5rem;
+  text-align: justify;
 }
