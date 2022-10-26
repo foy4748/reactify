@@ -13,7 +13,7 @@ export default function Topics() {
         <h1>Topics</h1>
         <Container>
           <Row xs={1} md={2} className="g-4">
-            {titles.map((item, idx) => (
+            {titles.map((item) => (
               <Col key={item.id}>
                 <Card className="test">
                   <Link to={`/post/${item.id}`}>

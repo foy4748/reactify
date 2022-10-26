@@ -5,12 +5,10 @@ import Post from "../components/Post";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import Topics from "../components/Topics";
-import ErrorPage from "../components/ErrorPage";
+import Checkout from "../components/Checkout";
 
-//Loaders
-//const dishLoader = async () => {
-//  return fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=a");
-//};
+import ErrorPage from "../components/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 const routerObj = [
   {
@@ -32,6 +30,15 @@ const routerObj = [
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/checkout/:id",
+        element: (
+          <PrivateRoute>
+            {" "}
+            <Checkout />
+          </PrivateRoute>
+        ),
       },
       {
         path: "*",

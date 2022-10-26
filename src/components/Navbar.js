@@ -7,6 +7,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
+import Image from "react-bootstrap/Image";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-regular-svg-icons";
@@ -49,7 +50,7 @@ export default function NavBar({ darkActive, setDarkActive }) {
           <Nav.Link onClick={handleLogOut}>
             {" "}
             {activeUser?.photoURL && (
-              <img
+              <Image
                 className="userIcon"
                 src={activeUser.photoURL}
                 alt={activeUser.displayName}
@@ -125,6 +126,12 @@ export default function NavBar({ darkActive, setDarkActive }) {
             <Nav className="me-auto">
               <Nav.Link as={NavLink} onClick={closeMenu} to="/topics">
                 Topics
+              </Nav.Link>
+              <Nav.Link as={NavLink} onClick={closeMenu} to="/blogs">
+                Blogs
+              </Nav.Link>
+              <Nav.Link as={NavLink} onClick={closeMenu} to="/faqs">
+                FAQs
               </Nav.Link>
             </Nav>
             <Nav>
