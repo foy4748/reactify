@@ -2,7 +2,7 @@ import styles from "./Topics.module.css";
 import SideNav from "./SideNav";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { useContext } from "react";
-import { titlesContext } from "../Contexts/TitlesContext";
+import { titlesContext } from "../../Contexts/TitlesContext";
 import { Link } from "react-router-dom";
 
 export default function Topics() {

@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import styles from "./Checkout.module.css";
 
 import { useContext } from "react";
-import { titlesContext } from "../Contexts/TitlesContext";
+import { titlesContext } from "../../Contexts/TitlesContext";
 
 export default function Checkout() {
   const { id } = useParams();
@@ -23,7 +23,7 @@ export default function Checkout() {
             Trial 1 hour
           </Button>
           <Button className="border readBtn" variant="outline-dark">
-            2 per hour
+            {"$5.00"} per hour
           </Button>
         </div>
       </div>

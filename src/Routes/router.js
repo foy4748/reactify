@@ -1,14 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import MainLayout from "../components/MainLayout";
-import Home from "../components/Home";
-import Post from "../components/Post";
-import Login from "../components/Login";
-import Register from "../components/Register";
-import Topics from "../components/Topics";
-import Checkout from "../components/Checkout";
+import MainLayout from "../components/Shared/MainLayout";
 
-import ErrorPage from "../components/ErrorPage";
+import Home from "../components/Home/Home";
+
+import Post from "../components/Topics/Post";
+import Topics from "../components/Topics/Topics";
+import Checkout from "../components/Topics/Checkout";
+
+import Login from "../components/AuthPages/Login";
+import Register from "../components/AuthPages/Register";
+
+import ErrorPage from "../components/Shared/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 
 const routerObj = [

@@ -5,7 +5,7 @@ import { useParams, Link } from "react-router-dom";
 import styles from "./Post.module.css";
 
 import SideNav from "./SideNav";
-import Loader from "./Loader";
+import Loader from "../Shared/Loader";
 
 import { Button } from "react-bootstrap";
 

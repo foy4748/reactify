@@ -1,6 +1,6 @@
 import { getAuth } from "firebase/auth";
 import firebaseApp from "../firebase.config.js";
-import Loader from "../components/Loader";
+import Loader from "../components/Shared/Loader";
 
 import { useLocation, Navigate } from "react-router-dom";
 

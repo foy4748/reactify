@@ -1,0 +1,13 @@
+.goalsContainer {
+  max-width: 400px;
+  margin: 3rem auto;
+}
+
+.sideLeft {
+  text-align: right;
+  padding: 2rem;
+}
+
+.sideRight {
+  padding: 2rem;
+}

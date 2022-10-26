@@ -12,10 +12,10 @@ import Image from "react-bootstrap/Image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-regular-svg-icons";
 
-import { userContext } from "../Contexts/AuthContext";
+import { userContext } from "../../Contexts/AuthContext";
 
 import { getAuth } from "firebase/auth";
-import firebaseApp from "../firebase.config.js";
+import firebaseApp from "../../firebase.config.js";
 
 const auth = getAuth(firebaseApp);
 

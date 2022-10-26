@@ -4,8 +4,8 @@ import styles from "./MainLayout.module.css";
 import { useState } from "react";
 
 //For Context API purpose
-import AuthContext from "../Contexts/AuthContext";
-import TitlesContext from "../Contexts/TitlesContext";
+import AuthContext from "../../Contexts/AuthContext";
+import TitlesContext from "../../Contexts/TitlesContext";
 
 export default function MainLayout() {
   const [darkActive, setDarkActive] = useState(false);

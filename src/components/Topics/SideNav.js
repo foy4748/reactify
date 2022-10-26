@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
-import { titlesContext } from "../Contexts/TitlesContext";
+import { titlesContext } from "../../Contexts/TitlesContext";
 
 import styles from "./SideNav.module.css";
 

@@ -1,20 +1,21 @@
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useContext, useState } from "react";
-import { userContext } from "../Contexts/AuthContext";
+import { userContext } from "../../Contexts/AuthContext";
 import { Form, Button } from "react-bootstrap";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faGithub } from "@fortawesome/free-brands-svg-icons";
+
 import styles from "./Register.module.css";
 
-export default function Register() {
+export default function Login() {
   //Executing Hooks
   const {
     setActiveUser,
     setAuthLoading,
-    registerHandler,
+    loginHandler,
     googleLoginHandler,
     githubLoginHandler,
-    updateUserProfile,
   } = useContext(userContext);
   const [error, setError] = useState();
   const location = useLocation();
@@ -23,32 +24,22 @@ export default function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    //Required Fields
+    console.log(form);
     const email = form.email.value;
     const password = form.password.value;
 
-    //Optional Fields
-    const displayName = form.displayName.value;
-    const photoURL = form.photoURL.value;
-    const profileObj = { displayName, photoURL };
-
-    registerHandler(email, password)
+    loginHandler(email, password)
       .then((result) => {
         setActiveUser(result);
         form.reset();
-        if (displayName && photoURL) {
-          handleUpdate(profileObj);
-        }
         navigate(location?.state?.from || "/", { replace: true });
       })
-      .catch((error) => setError(error));
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+        setAuthLoading(false);
+      });
     setAuthLoading(false);
-  };
-
-  const handleUpdate = (profileObj) => {
-    updateUserProfile(profileObj)
-      .then(() => {})
-      .catch((error) => console.error(error));
   };
 
   const handlerGoogleLogin = () => {
@@ -70,19 +61,13 @@ export default function Register() {
       .catch((error) => setError(error));
     setAuthLoading(false);
   };
-
   return (
     <div className={styles.formContainer}>
       <Form onSubmit={(e) => handleSubmit(e)} className="border rounded p-5">
-        <h1 className="text-center">Register</h1>
+        <h1 className="text-center">Login</h1>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            name="email"
-            required
-          />
+          <Form.Control type="email" placeholder="Enter email" name="email" />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
@@ -94,30 +79,13 @@ export default function Register() {
             type="password"
             name="password"
             placeholder="Password"
-            required
           />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicFullName">
-          <Form.Label>Full Name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Full Name"
-            name="displayName"
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPhotoURL">
-          <Form.Label>Photo URL</Form.Label>
-          <Form.Control type="text" placeholder="Photo URL" name="photoURL" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <p>
-            Already have an account? Please, <Link to="/login">Login</Link>
+            Don't have an account? Please, <Link to="/register">Register</Link>
           </p>
-          {error ? (
-            <p style={{ color: "red" }}>"Something Went Wrong. Try again"</p>
-          ) : (
-            ""
-          )}
+          {error ? <p style={{ color: "red" }}>"Wrong email/password"</p> : ""}
         </Form.Group>
         <Button className="border readBtn" variant="outline-dark" type="submit">
           Submit
@@ -130,6 +98,7 @@ export default function Register() {
           onClick={handlerGoogleLogin}
           className="border readBtn"
           variant="outline-dark"
+          type="submit"
         >
           {" "}
           <FontAwesomeIcon icon={faGoogle} /> Google{" "}
@@ -138,6 +107,7 @@ export default function Register() {
           onClick={handlerGithubLogin}
           className="border readBtn"
           variant="outline-dark"
+          type="submit"
         >
           {" "}
           <FontAwesomeIcon icon={faGithub} /> Github{" "}

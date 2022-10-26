@@ -1,7 +1,6 @@
 import { Button, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
-export default function Home() {
+export default function Banner() {
   return (
     <Carousel className="carauselContainer">
       <Carousel.Item interval={3000}>
