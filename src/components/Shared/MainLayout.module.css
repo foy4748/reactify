@@ -1,5 +1,6 @@
 .mainContainer {
   margin-top: 3.5rem;
+  border-bottom: 1px solid #00b8cb52;
 }
 
 .mainContainer a {

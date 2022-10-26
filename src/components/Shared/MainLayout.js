@@ -1,7 +1,10 @@
 import NavBar from "./Navbar";
+import FooterSection from "./Footer";
+
 import { Outlet, useLocation } from "react-router-dom";
-import styles from "./MainLayout.module.css";
 import { useState, useEffect } from "react";
+
+import styles from "./MainLayout.module.css";
 
 //For Context API purpose
 import AuthContext from "../../Contexts/AuthContext";
@@ -31,6 +34,7 @@ export default function MainLayout() {
             <Outlet />
           </section>
         </TitlesContext>
+        <FooterSection />
       </AuthContext>
     </>
   );
