@@ -29,7 +29,7 @@ export default function Topics() {
                     <Button
                       as={Link}
                       to={`/post/${item.id}`}
-                      variant="outline-info"
+                      variant="outline-dark"
                       className="border readBtn"
                     >
                       Read

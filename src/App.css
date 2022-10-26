@@ -1,10 +1,10 @@
 .test {
-  background-color: #00b8cb !important;
-  color: floralwhite !important;
+  background-color: #00b8cb52 !important;
 }
 
 .readBtn {
-  color: floralwhite !important;
+  color: white !important;
+  background-color: #00b8cbd6 !important;
 }
 .brandLogo {
   width: 2rem;

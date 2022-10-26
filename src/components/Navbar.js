@@ -21,7 +21,6 @@ const auth = getAuth(firebaseApp);
 export default function NavBar({ darkActive, setDarkActive }) {
   const { setActiveUser, logOutHandler, authLoading } = useContext(userContext);
   const activeUser = auth.currentUser;
-  console.log(activeUser?.photoURL);
 
   const toggleButton = useRef();
   const closeMenu = () => {
