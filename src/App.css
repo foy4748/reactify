@@ -1,3 +1,7 @@
+body {
+  background-color: black;
+}
+
 .test {
   background-color: #00b8cb52 !important;
 }

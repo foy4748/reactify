@@ -10,6 +10,8 @@ import Checkout from "../components/Topics/Checkout";
 
 import Blogs from "../components/Blogs/Blogs";
 
+import FAQs from "../components/FAQs/FAQs";
+
 import Login from "../components/AuthPages/Login";
 import Register from "../components/AuthPages/Register";
 
@@ -32,6 +34,10 @@ const routerObj = [
       {
         path: "/blogs",
         element: <Blogs />,
+      },
+      {
+        path: "/faqs",
+        element: <FAQs />,
       },
       {
         path: "/post/:id",
