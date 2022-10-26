@@ -6,7 +6,7 @@ import { titlesContext } from "../../Contexts/TitlesContext";
 import { Link } from "react-router-dom";
 
 export default function Topics() {
-  const titles = useContext(titlesContext);
+  const { titles } = useContext(titlesContext);
   return (
     <div className={styles.topicPageContainer}>
       <div className={styles.topicContainer}>

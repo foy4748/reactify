@@ -4,8 +4,13 @@ import { titlesContext } from "../../Contexts/TitlesContext";
 
 import styles from "./SideNav.module.css";
 
+import Loader from "../Shared/Loader";
+
 export default function SideNav() {
-  const titles = useContext(titlesContext);
+  const { titles, titlesLoading } = useContext(titlesContext);
+  if (titlesLoading) {
+    return <Loader />;
+  }
   return (
     <div className={styles.sideNavContainer}>
       <h1>Topics</h1>

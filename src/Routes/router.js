@@ -8,6 +8,8 @@ import Post from "../components/Topics/Post";
 import Topics from "../components/Topics/Topics";
 import Checkout from "../components/Topics/Checkout";
 
+import Blogs from "../components/Blogs/Blogs";
+
 import Login from "../components/AuthPages/Login";
 import Register from "../components/AuthPages/Register";
 
@@ -26,6 +28,10 @@ const routerObj = [
       {
         path: "/topics",
         element: <Topics />,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs />,
       },
       {
         path: "/post/:id",

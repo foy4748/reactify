@@ -1,0 +1,9 @@
+.blogContainer {
+  max-width: 800px;
+  margin: 3.5rem auto;
+  padding: 4rem 0;
+}
+
+.singleBlog {
+  margin-bottom: 5rem;
+}
