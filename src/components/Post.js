@@ -56,7 +56,13 @@ export default function Post() {
       <div className={styles.postContainer} ref={pdfRef}>
         <div className="d-lg-flex justify-content-between flex-wrap">
           <Markdown children={title} />
-          <Button onClick={handleDownload}>Generate Pdf</Button>
+          <Button
+            variant="outline-dark"
+            className="border readBtn"
+            onClick={handleDownload}
+          >
+            Generate Pdf
+          </Button>
         </div>
         <div className={styles.imgContainer}>
           <img src={`/${id}.png`} className="imgFluid" alt="" />
@@ -66,9 +72,11 @@ export default function Post() {
             <Markdown children={post} />
           </div>
           <div className="d-flex justify-content-center my-5">
-            <Link className="btn btn-primary" to={`/checkout/${id}`}>
+            <Link to={`/checkout/${id}`}>
               {" "}
-              Get Premium Access
+              <Button className="border readBtn" variant="outline-dark">
+                Get Premium Access
+              </Button>
             </Link>
           </div>
         </div>

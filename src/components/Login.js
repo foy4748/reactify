@@ -87,18 +87,28 @@ export default function Login() {
           </p>
           {error ? <p style={{ color: "red" }}>"Wrong email/password"</p> : ""}
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button className="border readBtn" variant="outline-dark" type="submit">
           Submit
         </Button>
       </Form>
       <hr />
       <h1 className="text-center">Continue using</h1>
       <div className="d-flex justify-content-center">
-        <Button onClick={handlerGoogleLogin}>
+        <Button
+          onClick={handlerGoogleLogin}
+          className="border readBtn"
+          variant="outline-dark"
+          type="submit"
+        >
           {" "}
           <FontAwesomeIcon icon={faGoogle} /> Google{" "}
         </Button>
-        <Button onClick={handlerGithubLogin}>
+        <Button
+          onClick={handlerGithubLogin}
+          className="border readBtn"
+          variant="outline-dark"
+          type="submit"
+        >
           {" "}
           <FontAwesomeIcon icon={faGithub} /> Github{" "}
         </Button>
