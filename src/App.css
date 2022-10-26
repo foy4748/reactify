@@ -13,6 +13,11 @@
   width: 100%;
 }
 
+.userIcon {
+  width: 2rem;
+  border-radius: 50%;
+}
+
 .cardImg {
   max-height: 14.5rem;
   object-fit: cover;

@@ -21,6 +21,7 @@ const auth = getAuth(firebaseApp);
 export default function NavBar({ darkActive, setDarkActive }) {
   const { setActiveUser, logOutHandler, authLoading } = useContext(userContext);
   const activeUser = auth.currentUser;
+  console.log(activeUser?.photoURL);
 
   const toggleButton = useRef();
   const closeMenu = () => {
@@ -35,7 +36,30 @@ export default function NavBar({ darkActive, setDarkActive }) {
   };
 
   const logoutNavItem = () => {
-    return <Nav.Link onClick={handleLogOut}>Log Out</Nav.Link>;
+    return (
+      <>
+        <Nav.Link onClick={handleLogOut}>
+          {" "}
+          {activeUser?.email || "Log Out"}
+        </Nav.Link>
+
+        <OverlayTrigger
+          placement={"bottom"}
+          overlay={<Tooltip>{activeUser.displayName}</Tooltip>}
+        >
+          <Nav.Link onClick={handleLogOut}>
+            {" "}
+            {activeUser?.photoURL && (
+              <img
+                className="userIcon"
+                src={activeUser.photoURL}
+                alt={activeUser.displayName}
+              />
+            )}
+          </Nav.Link>
+        </OverlayTrigger>
+      </>
+    );
   };
 
   const loginRegisterNavItem = () => {
