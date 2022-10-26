@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import MainLayout from "../components/MainLayout";
+import Home from "../components/Home";
 import Post from "../components/Post";
 import Login from "../components/Login";
 import Register from "../components/Register";
@@ -15,6 +16,10 @@ const routerObj = [
     path: "/",
     element: <MainLayout />,
     children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
       {
         path: "/topics",
         element: <Topics />,

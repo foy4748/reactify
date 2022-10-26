@@ -2,6 +2,28 @@
   background-color: #00b8cb52 !important;
 }
 
+/* Carausel Styling */
+.carauselContainer {
+  width: 100%;
+}
+
+.carauselImg {
+  object-fit: cover;
+  max-height: 80vh;
+  filter: contrast(90%) brightness(50%);
+}
+
+.centeringCaption {
+  top: 10%;
+}
+
+.leftPart {
+  text-align: left;
+}
+
+.rightPart {
+  text-align: right;
+}
 .readBtn {
   color: white !important;
   background-color: #00b8cbd6 !important;
@@ -48,7 +70,7 @@
 }
 
 .centeringCaption {
-  top: 30%;
+  top: 10%;
 }
 
 .leftPart {
@@ -56,12 +78,18 @@
 }
 
 .rightPart {
-  text-align: right;
+  text-align: left;
 }
 
 @media screen and (min-width: 768px) {
   .sticky {
     font-size: 2rem;
     padding: 2rem 0;
+  }
+  .centeringCaption {
+    top: 30%;
+  }
+  .leftPart {
+    text-align: right;
   }
 }
