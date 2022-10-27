@@ -23,6 +23,7 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError(null);
     const form = e.target;
     console.log(form);
     const email = form.email.value;
@@ -63,7 +64,11 @@ export default function Login() {
   };
   return (
     <div className={styles.formContainer}>
-      <Form onSubmit={(e) => handleSubmit(e)} className="border rounded p-5">
+      <Form
+        onSubmit={(e) => handleSubmit(e)}
+        onChange={() => setError(false)}
+        className="border rounded p-5"
+      >
         <h1 className="text-center">Login</h1>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>

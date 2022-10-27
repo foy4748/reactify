@@ -1,7 +1,7 @@
 import Markdown from "react-markdown";
 import { useRef, useEffect, useState } from "react";
 import { jsPDF } from "jspdf";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import styles from "./Post.module.css";
 
 import SideNav from "./SideNav";
@@ -15,7 +15,9 @@ export default function Post() {
   const [post, setPost] = useState("");
   const [title, setTitle] = useState("");
   const [loading, setLoading] = useState(true);
+
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const pdfRef = useRef(null);
 
@@ -34,6 +36,10 @@ export default function Post() {
     fetch(`${SERVER ? SERVER : "http://localhost:3001"}/${id}`)
       .then((res) => res.json())
       .then(({ title, post }) => {
+        if (!title || !post) {
+          navigate("/notfound");
+          return;
+        }
         setTitle(title);
         setPost(post);
         setLoading(false);
@@ -41,7 +47,7 @@ export default function Post() {
       .catch((error) => {
         console.log(error);
       });
-  }, [id]);
+  }, [id, navigate]);
 
   if (loading) {
     return <Loader />;
@@ -69,7 +75,6 @@ export default function Post() {
           </div>
           <div className="d-flex justify-content-center my-5">
             <Link to={`/checkout/${id}`}>
-              {" "}
               <Button className="border readBtn" variant="outline-dark">
                 Get Premium Access
               </Button>
