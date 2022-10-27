@@ -10,7 +10,6 @@ export default function Register() {
   //Executing Hooks
   const {
     setActiveUser,
-    setAuthLoading,
     registerHandler,
     googleLoginHandler,
     githubLoginHandler,
@@ -20,6 +19,9 @@ export default function Register() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Event handlers --------------------------
+
+  /* Register Form Submit Handler */
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -43,13 +45,14 @@ export default function Register() {
       })
       .catch((error) => setError(error));
   };
-
+  // For adding displayName and photoURL
   const handleUpdate = (profileObj) => {
     updateUserProfile(profileObj)
       .then(() => {})
       .catch((error) => console.error(error));
   };
 
+  /* Google PopUp SignIn Handler */
   const handlerGoogleLogin = () => {
     googleLoginHandler()
       .then((result) => {
@@ -59,6 +62,7 @@ export default function Register() {
       .catch((error) => setError(error));
   };
 
+  /* Github PopUp SignIn Handler */
   const handlerGithubLogin = () => {
     githubLoginHandler()
       .then((result) => {
@@ -67,6 +71,7 @@ export default function Register() {
       })
       .catch((error) => setError(error));
   };
+  //--------------------------------------------
 
   return (
     <div className={styles.formContainer}>

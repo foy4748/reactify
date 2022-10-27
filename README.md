@@ -1,12 +1,42 @@
 # Reactify  
 ## An Educational Website  
-- Requirements:  
+### (CLIENT SIDE CODE)
 
-- CLINET Repo Link:  
-- Live Website:  
+- Requirements: [Github](https://github.com/foy4748/reactify/blob/main/REQUIREMENTS.md)  
 
-- SERVER Repo Link:
-- Server Link:
+- SERVER Repo Link: [Github](https://github.com/foy4748/reactify-server)
+- Server Link: [Vercel](https://ph-server-assignment-10.vercel.app/)
+
+- CLIENT Repo Link: [Github](https://github.com/foy4748/reactify) 
+- Live Website: [Netlify](https://p-hero-foy4748-assignment-10.netlify.app/) 
+
+
+# Features
+- Responsive Design / Mobile First Approach  
+- Dark Mode for eye comfort
+- Renders Markdown document
+- Secure (XSS Proof)
+- Save Document as PDF
+- Authentication Privilege 
+
+# Used Technologies
+- Front End
+    - React
+        - Context API
+        - Conditional Rendering
+        - Render Props
+    - React-Router-DOM
+        - Private Route
+        - Redirect
+        - React-Bootstrap
+    - JSPDF
+
+- Back End
+    - NodeJS
+
+- Authentication 
+    - Firebase Web Authentication
+
 ---   
 # Getting Started with Create React App
 

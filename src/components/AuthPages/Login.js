@@ -12,7 +12,6 @@ export default function Login() {
   //Executing Hooks
   const {
     setActiveUser,
-    setAuthLoading,
     loginHandler,
     googleLoginHandler,
     githubLoginHandler,
@@ -21,6 +20,9 @@ export default function Login() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Event handlers --------------------------
+
+  /* Login Form Submit Handler */
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(null);
@@ -37,10 +39,10 @@ export default function Login() {
       .catch((error) => {
         console.error(error);
         setError(error.message);
-        setAuthLoading(false);
       });
   };
 
+  /* Google PopUp SignIn Handler */
   const handlerGoogleLogin = () => {
     googleLoginHandler()
       .then((result) => {
@@ -50,6 +52,7 @@ export default function Login() {
       .catch((error) => setError(error));
   };
 
+  /* Github PopUp SignIn Handler */
   const handlerGithubLogin = () => {
     githubLoginHandler()
       .then((result) => {
@@ -58,6 +61,8 @@ export default function Login() {
       })
       .catch((error) => setError(error));
   };
+  //--------------------------------------------
+
   return (
     <div className={styles.formContainer}>
       <Form
@@ -68,7 +73,12 @@ export default function Login() {
         <h1 className="text-center">Login</h1>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" name="email" />
+          <Form.Control
+            type="email"
+            placeholder="Enter email"
+            name="email"
+            required
+          />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
@@ -80,6 +90,7 @@ export default function Login() {
             type="password"
             name="password"
             placeholder="Password"
+            required
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
