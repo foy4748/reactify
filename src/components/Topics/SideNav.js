@@ -21,7 +21,7 @@ export default function SideNav() {
           <li key={item.id}>
             <NavLink
               to={`/post/${item.id}`}
-              className={({ isActive }) => isActive && "activeClassName"}
+              className={({ isActive }) => (isActive ? "activeClassName" : "")}
             >
               {item.title}
             </NavLink>

@@ -25,7 +25,6 @@ export default function Login() {
     e.preventDefault();
     setError(null);
     const form = e.target;
-    console.log(form);
     const email = form.email.value;
     const password = form.password.value;
 
@@ -40,7 +39,6 @@ export default function Login() {
         setError(error.message);
         setAuthLoading(false);
       });
-    setAuthLoading(false);
   };
 
   const handlerGoogleLogin = () => {
@@ -50,7 +48,6 @@ export default function Login() {
         navigate(location?.state?.from || "/", { replace: true });
       })
       .catch((error) => setError(error));
-    setAuthLoading(false);
   };
 
   const handlerGithubLogin = () => {
@@ -60,7 +57,6 @@ export default function Login() {
         navigate(location?.state?.from || "/", { replace: true });
       })
       .catch((error) => setError(error));
-    setAuthLoading(false);
   };
   return (
     <div className={styles.formContainer}>

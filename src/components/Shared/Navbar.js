@@ -2,12 +2,14 @@
 import { NavLink, Link } from "react-router-dom";
 import { useRef, useContext } from "react";
 
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
-import Image from "react-bootstrap/Image";
+import {
+  Container,
+  Nav,
+  Navbar,
+  OverlayTrigger,
+  Tooltip,
+  Image,
+} from "react-bootstrap";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-regular-svg-icons";
@@ -35,6 +37,7 @@ export default function NavBar({ darkActive, setDarkActive }) {
     });
   };
 
+  // Auth related JSX for conditional rendering
   const logoutNavItem = () => {
     return (
       <>
@@ -75,7 +78,9 @@ export default function NavBar({ darkActive, setDarkActive }) {
       </>
     );
   };
+  //-------------------------
 
+  // Light & Dark Theme Switch JSX
   const light = (
     <OverlayTrigger
       placement={"bottom"}
@@ -104,6 +109,7 @@ export default function NavBar({ darkActive, setDarkActive }) {
       </Nav.Item>
     </OverlayTrigger>
   );
+  //-------------------------------
 
   return (
     <>

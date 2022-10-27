@@ -42,7 +42,6 @@ export default function Register() {
         navigate(location?.state?.from || "/", { replace: true });
       })
       .catch((error) => setError(error));
-    setAuthLoading(false);
   };
 
   const handleUpdate = (profileObj) => {
@@ -58,7 +57,6 @@ export default function Register() {
         navigate(location?.state?.from || "/", { replace: true });
       })
       .catch((error) => setError(error));
-    setAuthLoading(false);
   };
 
   const handlerGithubLogin = () => {
@@ -68,7 +66,6 @@ export default function Register() {
         navigate(location?.state?.from || "/", { replace: true });
       })
       .catch((error) => setError(error));
-    setAuthLoading(false);
   };
 
   return (

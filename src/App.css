@@ -43,10 +43,10 @@ body {
 }
 
 .userIcon {
-  width: 1.5rem;
-  max-height: 1.5rem;
+  width: 1.75rem;
+  max-height: 1.75rem;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 0.5rem;
 }
 
 .cardImg {
