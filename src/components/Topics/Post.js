@@ -24,11 +24,12 @@ export default function Post() {
   const handleDownload = () => {
     const content = pdfRef.current;
 
-    const doc = new jsPDF("p", "pt", "a4");
+    const doc = new jsPDF("l", "pt", "legal");
     doc.html(content, {
       callback: function (doc) {
         doc.save(`Reactify_Post_${id}.pdf`);
       },
+      margin: [5, 10, 10, 10],
     });
   };
 
