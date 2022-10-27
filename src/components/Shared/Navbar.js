@@ -54,6 +54,7 @@ export default function NavBar({ darkActive, setDarkActive }) {
                 className="userIcon"
                 src={activeUser.photoURL}
                 alt={activeUser.displayName}
+                referrerPolicy="no-referrer"
               />
             )}
           </Nav.Link>

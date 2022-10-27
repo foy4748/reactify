@@ -29,6 +29,8 @@ body {
 .rightPart {
   text-align: right;
 }
+
+/* Utilities */
 .readBtn {
   color: white !important;
   background-color: #00b8cbd6 !important;
@@ -61,6 +63,13 @@ body {
   position: fixed;
   top: 10rem;
   left: 0 !important;
+}
+
+.activeClassName {
+  background-color: #00b8cb;
+  color: floralwhite !important;
+  border-radius: 1rem;
+  padding: 0 0.25rem;
 }
 
 /* Carausel Styling */

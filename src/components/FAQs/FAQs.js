@@ -1,4 +1,4 @@
-import { Container, Accordion } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import styles from "./FAQs.module.css";
 
 export default function FAQs() {
